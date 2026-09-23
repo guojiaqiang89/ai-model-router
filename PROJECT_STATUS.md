@@ -246,8 +246,8 @@ Codex 在我上一轮修复后又复审了一遍，提出 4 项（3×P1 + 1×P2�
    而不额外收费，超过 50% 后才需要 usage credits 或换模型；Pro 计划则一直要 credits。
    所以升级到 Max 之后把这一行改成 `"claude-fable-5"` 即可切换，不用改别处
    （另需 Claude Code ≥ 2.1.170）。用户当前先用 `claude-opus-5`。
-3. DeepSeek/Qwen 的 API key 曾直接贴在 Claude 对话里（而非按计划用 shell 命令写入），已记录
-   在案，用户后续可能会轮换这两个 key。
+3. API key 一律只写进 `.env`（chmod 600，已在 `.gitignore` 排除），不要贴进任何对话窗口或
+   提交到版本库——贴出去过的 key 就按已泄露处理，尽快轮换。
 
 ## 更新记录
 

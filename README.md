@@ -454,4 +454,17 @@ tail -f /root/projects/ai-model-router/logs/router.jsonl   # 调度/工具执行
 - Codex 配额只能被动检测，无法提前预警
 - dsh 网页界面的 token 每次重启变化，且无固定 token 的配置项
 
-更详细的演进记录、每一轮代码审查的问题与修复，见 [`PROJECT_STATUS.md`](PROJECT_STATUS.md)。
+更详细的演进记录、每一轮代码审查的问题与修复，见 [`PROJECT_STATUS.md`](PROJECT_STATUS.md)。那份文档保留了完整的踩坑过程（包括几次真实事故和返工），对照着看能少走不少弯路。
+
+---
+
+## 许可证
+
+[MIT](LICENSE)。可以自由使用、修改、商用，只需保留版权声明。
+
+## 使用提醒
+
+- 本仓库**不含任何密钥**。`.env` 已被 `.gitignore` 排除，部署时需要自己填 API key。
+- 各家模型的订阅和 API 费用由使用者自行承担；本项目只做调度，不代理任何账号。
+- `run_shell` 的沙盒基于 Linux 的 `bwrap`（user namespace），macOS / Windows 上不可用——那两个平台下路径类工具仍可用，但执行 shell 命令的能力会被自动禁用。
+- 这是**单人/小团队内部工具**的定位，没有做健康检查、熔断、成本统计等生产级设施（见[已知限制](#已知限制)）。要用在更关键的场景，建议先补上这些。
